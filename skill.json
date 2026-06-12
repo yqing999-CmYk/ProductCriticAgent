@@ -1,0 +1,197 @@
+{
+  "name": "S5-ProjectManager",
+  "version": "1.0.0",
+  "display_name": "Bill Gates Project Analyst",
+  "description": "Strategic project evaluator using Bill Gates' proven 5-view analysis framework. Analyzes project viability, resource allocation, innovation potential, and market fit without financial ROI predictions.",
+  "author": "Your Organization",
+  "author_email": "contact@example.com",
+  "license": "MIT",
+  "repository": "https://github.com/your-org/S5-ProjectManager",
+  "documentation_url": "README.md",
+  "icon_url": "https://example.com/icon.png",
+
+  "metadata": {
+    "category": "business-strategy",
+    "subcategories": ["project-evaluation", "strategic-planning", "decision-making"],
+    "tags": ["bill-gates", "project-analysis", "startup-evaluation", "innovation", "cost-analysis"],
+    "requires_web_access": true,
+    "requires_authentication": false,
+    "estimated_tokens_per_call": 2000,
+    "max_response_time_seconds": 30
+  },
+
+  "capabilities": [
+    "Project viability analysis",
+    "5-view strategic framework evaluation",
+    "Technology feasibility assessment",
+    "Cost efficiency analysis",
+    "Innovation potential scoring",
+    "Market momentum evaluation",
+    "Project type classification",
+    "Actionable recommendations",
+    "Competitive benchmarking"
+  ],
+
+  "model_compatibility": {
+    "minimum_model": "claude-3-5-sonnet",
+    "recommended_models": ["claude-opus-4.1", "claude-3-5-sonnet"],
+    "tested_models": ["claude-opus", "claude-opus-4.1", "claude-3-5-sonnet", "claude-3-haiku"]
+  },
+
+  "activation": {
+    "keywords": [
+      "project analysis",
+      "strategic evaluation",
+      "go no-go decision",
+      "bill gates",
+      "project viability",
+      "should we fund",
+      "project assessment",
+      "resource allocation"
+    ],
+    "example_triggers": [
+      "Bill, is this project worth implementing?",
+      "Should we invest in this startup idea?",
+      "Analyze this project using your framework"
+    ]
+  },
+
+  "knowledge_base": {
+    "files": ["SKILL.md"],
+    "external_resources": [
+      {
+        "name": "Bill Gates Product Critic",
+        "url": "https://www.heropedia.org/product/product-critic/bill-gates",
+        "type": "reference"
+      }
+    ]
+  },
+
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "project_description": {
+        "type": "string",
+        "description": "Detailed description of the project, including problem it solves, target market, and current status"
+      },
+      "project_type": {
+        "type": "string",
+        "enum": ["application", "hardware", "service", "system", "unknown"],
+        "description": "Type of project (Application/Software/Web, Hardware, Service, or System)"
+      },
+      "estimated_cost": {
+        "type": "string",
+        "description": "Estimated implementation cost and timeline (optional)"
+      },
+      "team_size": {
+        "type": "string",
+        "description": "Current or planned team size (optional)"
+      },
+      "market_context": {
+        "type": "string",
+        "description": "Target market, competitors, and market conditions (optional)"
+      }
+    },
+    "required": ["project_description"]
+  },
+
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "project_classification": {
+        "type": "string",
+        "description": "Project type (I, II, III, or IV)"
+      },
+      "five_view_scores": {
+        "type": "object",
+        "properties": {
+          "technology_doable": {"type": "number", "minimum": 1, "maximum": 10},
+          "cost_big_cutter": {"type": "number", "minimum": 1, "maximum": 10},
+          "resource_allocation_pusher": {"type": "number", "minimum": 1, "maximum": 10},
+          "inventor_innovation": {"type": "number", "minimum": 1, "maximum": 10},
+          "tidal_wave_momentum": {"type": "number", "minimum": 1, "maximum": 10}
+        }
+      },
+      "judgment": {
+        "type": "string",
+        "enum": ["GOOD", "BAD", "NEEDS_PIVOT"],
+        "description": "Overall project recommendation"
+      },
+      "analysis": {
+        "type": "string",
+        "description": "Detailed analysis (≤300 words)"
+      },
+      "recommendations": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "Specific actionable recommendations"
+      },
+      "10_year_vision": {
+        "type": "string",
+        "description": "Strategic direction for long-term success"
+      }
+    }
+  },
+
+  "configuration": {
+    "response_length": "compact",
+    "max_words": 300,
+    "tone": "direct",
+    "include_citations": false,
+    "include_uncertainty_notes": true
+  },
+
+  "performance": {
+    "average_response_time_ms": 3000,
+    "cache_enabled": true,
+    "concurrent_calls_limit": 10,
+    "rate_limit": "100 calls per day per user"
+  },
+
+  "dependencies": [],
+
+  "changelog": {
+    "1.0.0": {
+      "date": "2026-06-12",
+      "changes": [
+        "Initial release",
+        "5-view analysis framework implemented",
+        "Bill Gates decision-making behavioral rules",
+        "Project classification system (Type I-IV)",
+        "Judgment criteria and recommendations"
+      ]
+    }
+  },
+
+  "support": {
+    "contact": "contact@example.com",
+    "issue_tracker": "https://github.com/your-org/S5-ProjectManager/issues",
+    "documentation": "README.md",
+    "community_forum": null
+  },
+
+  "usage_examples": [
+    {
+      "title": "SaaS Application Evaluation",
+      "prompt": "Analyze this SaaS product: a Figma plugin that auto-generates accessible React components from design mockups. Target market: 10k-100k developers. Current tech stack: TypeScript, WebAssembly. Estimated development cost: $200k. Team: 4 engineers.",
+      "expected_duration": "2-3 minutes"
+    },
+    {
+      "title": "Business Pivot Decision",
+      "prompt": "Our e-commerce company currently does B2C dropshipping. We're considering pivoting to B2B wholesale infrastructure. Is this a good use of our capital?",
+      "expected_duration": "2-3 minutes"
+    },
+    {
+      "title": "Hardware Startup Analysis",
+      "prompt": "We're building a home energy monitoring device that works offline via Bluetooth. Manufacturing in Vietnam. Initial production cost: $85 per unit, retail price: $299. Target: 50k units in year 1.",
+      "expected_duration": "2-3 minutes"
+    }
+  ],
+
+  "quality_metrics": {
+    "accuracy": "High (framework-based)",
+    "hallucination_risk": "Low",
+    "bias_note": "Reflects Bill Gates' perspective and era; user should cross-reference with other frameworks",
+    "data_freshness": "Requires web search for current market data"
+  }
+}
